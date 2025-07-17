@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Final.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="Final.css"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <p class="Itemlist"></p>
+        <div class="videogamesArray"></div>
+    <div class="CRUD">
+        <p class="Instructions"></p>
+    </div>
+    
+    <div class="Create">
+  <h3>Create a New Game</h3>
+  <input type="text" id="createName" placeholder="Game Name">
+  <input type="number" id="createPrice" placeholder="Game Price">
+  <button id="createBtn">Create Game</button>
+</div>
+
+<div class="Read">
+  <h3>Read Game Info</h3>
+  <select id="readSelect"></select>
+  <p class="Display"></p>
+</div>
+
+<div class="Update">
+  <h3>Update a Game</h3>
+  <select id="gameSelect"></select>
+  <input type="text" id="newName" placeholder="New Name">
+  <input type="number" id="newPrice" placeholder="New Price">
+  <button id="updateBtn">Update Game</button>
+</div>
+
+<div class="Delete">
+  <h3>Delete a Game</h3>
+  <select id="deleteSelect"></select>
+  <button id="deleteBtn">Delete Game</button>
+</div>
+</div>
+</body>
+</html>
