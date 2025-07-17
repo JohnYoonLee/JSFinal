@@ -10,45 +10,34 @@ const videogames = [
 ];
 
 const CRUD = [
-    { action: "Create a new item: C" },
-    { action: "Read details for an item: R" },
-    { action: "Update details for an item: U" },
-    { action: "Delete an item: D" }
 ];
 
-$("#readSelect").on("change", function () {
-    const selected = $(this).val();
-    const game = videogames.find(g => g.Name === selected);
 
-    if (game) {
-        $(".Read").text(`${game.Name} costs $${game.Price}`);
-    } else {
- 
-    }
-});
-
-
-const populateGameDropdown = () => {
+const GameDropdown = () => {
     const options = videogames.map(game => `<option value="${game.Name}">${game.Name}</option>`)
     .join("");
     $("#gameSelect, #readSelect, #deleteSelect").html(options);
 };
 
 
-
 $("#createBtn").on("click", function () {
     const name = $("#createName").val().trim();
     const price = parseFloat($("#createPrice").val());
 
-    if (name && !isNaN(price)) {
         videogames.push({ Name: name, Price: price });
         listItems();
         alert("Game created!");
         $("#createName").val("");
         $("#createPrice").val("");
-    } else {
- ;
-    }
+});
+
+
+$("#readSelect").on("change", function () {
+    const selected = $(this).val();
+    const game = videogames.find(g => g.Name === selected);
+
+        $(".Read").text(`${game.Name} costs $${game.Price}`);
+
 });
 
 
@@ -58,28 +47,23 @@ $("#updateBtn").on("click", function () {
     const newPrice = parseFloat($("#newPrice").val());
 
     let game = videogames.find(g => g.Name === selectedGameName);
-
-    if (game && newName && !isNaN(newPrice)) {
-        game.Name = newName;
-        game.Price = newPrice;
+        
+    game.Name = newName;
+    game.Price = newPrice;
 
         listItems();             
-        populateGameDropdown();   
+        GameDropdown();   
         alert("Game updated successfully!");
-    } else {
-   
-    }
+
 });
 
 $("#deleteBtn").on("click", function () {
     const selected = $("#deleteSelect").val();
     const index = videogames.findIndex(g => g.Name === selected);
-
-    if (index !== -1) {
         videogames.splice(index, 1);
         listItems();
         alert(`${selected} has been deleted.`);
-    }
+
 });
 
 const listItems = () => {
@@ -90,7 +74,7 @@ const listItems = () => {
     videogamesDisplay += `</ol>`;
 
     $(".videogamesArray").html(videogamesDisplay);
-    populateGameDropdown();
+    GameDropdown();
 };
 
 
